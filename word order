@@ -1,0 +1,9 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import Counter
+a = int(input())
+lst = []
+for i in range(a):
+    lst.append(input())
+exist = Counter(lst)
+print(len(exist))
+print(*exist.values())
