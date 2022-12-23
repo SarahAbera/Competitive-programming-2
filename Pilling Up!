@@ -1,0 +1,19 @@
+from collections import deque
+def piling():
+    T = int(input())
+    lst = map(int,input().split())
+    deq = deque(lst)
+    val = float("inf")
+    while deq:
+        if deq[0] > val or deq[-1] > val:
+            print("No")
+            break
+        if deq[-1] >= deq[0]:
+            val = deq.pop()
+        else:
+            val = deq.popleft()
+    if len(deq) == 0:
+            print("Yes")
+n = int(input())
+for i in range(n):
+    piling()
