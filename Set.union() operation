@@ -1,0 +1,7 @@
+ne = int(input())
+english = list(map(int,input().split()))
+nf= int(input())
+french = list(map(int,input().split()))
+total = set(english).union(french)
+total_number= len(total)
+print(total_number)
