@@ -1,0 +1,13 @@
+class Solution(object):
+    def nearestValidPoint(self, x, y, points):
+        minimum = float("inf")
+        dic = {}
+        for i in range(len(points)):
+            dist = 0
+            if points[i][0] == x or points[i][1] == y:
+                dist = (x-points[i][0])**2 + (y-points[i][1])**2
+                minimum = min(minimum,dist)
+                if dist not in dic.keys():
+                    dic[dist] = i
+
+        return dic[minimum] if dic else -1 
