@@ -1,0 +1,19 @@
+if __name__ == '__main__':
+    n = int(input())
+    list = []
+    for i in range(n):
+        operation = input().split()
+        if (operation[0] == "insert") :
+            list.insert(int(operation[1]),int(operation[2]))
+        if operation[0] == "print":
+            print(list)
+        if operation[0] == "remove":
+            list.remove(int(operation[1]))
+        if operation[0] == "append" :
+            list.append(int(operation[1]))
+        if operation[0] == "sort":
+            list.sort()
+        if operation[0] == "pop":
+            list.pop()
+        if operation[0] == "reverse":
+            list.reverse()
