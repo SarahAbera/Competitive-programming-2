@@ -1,0 +1,9 @@
+class Solution(object):
+    def similarPairs(self, words):
+        st = list(map(set, words))
+        counter = 0   
+        for i in range(len(st)):
+            for j in range(i+1,len(st)):
+                if st[i] == st[j]:
+                    counter += 1
+        return counter
