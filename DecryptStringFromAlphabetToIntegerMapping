@@ -1,0 +1,16 @@
+class Solution(object):
+    def freqAlphabets(self, s):
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        dict = {i+1:c for i,c in enumerate(alphabet)}
+        rightptr = len(s)-1
+        ordr = ''
+        new = ''
+        while rightptr >= 0:
+            if s[rightptr] == "#":
+                ordr = s[rightptr-2] + s[rightptr-1]
+                new += dict[int(ordr)]
+                rightptr -= 3 
+            else:
+                new += dict[int(s[rightptr])]
+                rightptr -= 1
+        return new[::-1]
