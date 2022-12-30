@@ -1,0 +1,11 @@
+A = set(map(int,input().split()))
+n = int(input())
+T = True
+for i in range(n):
+    s = set(map(int,input().split()))
+    if len(s) < len(A):
+        for num in s:
+            if num not in A:
+                T = False
+                break 
+print(T) 
