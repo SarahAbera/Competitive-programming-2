@@ -1,0 +1,38 @@
+t = int(input())
+for i in range(t):
+    s1, s2 = input().split()
+    if len(s1) == len(s2):
+        if s1[-1] == s2[-1]:
+            print("=")
+        elif s1[-1] == "L" and s2[-1] != "L":
+            print(">")
+        elif s1[-1] != "L" and s2[-1] == "L":
+            print("<")
+        elif s1[-1] == "M" and s2[-1] == "S":
+            print(">")
+        elif s1[-1] == "S" and s2[-1] == "M":
+            print("<")
+    elif len(s1) < len(s2):
+        if s1[-1] == s2[-1]:
+            if s1[-1] == "S":
+                print(">")
+            else:
+                print("<")
+        elif s1[-1] == "L" and s2[-1] != "L":
+            print(">")
+        elif s1[-1] == "M" and s2[-1] == "S":
+            print(">")
+        else:
+            print("<")
+    else:
+        if s1[-1] == s2[-1]:
+            if s1[-1] == "S":
+                print("<")
+            else:
+                print(">")
+        elif s1[-1] != "L" and s2[-1] == "L":
+            print("<")
+        elif s1[-1] == "S" and s2[-1] == "M":
+            print("<")
+        else:
+            print(">")
