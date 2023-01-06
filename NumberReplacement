@@ -1,0 +1,23 @@
+t = int(input())
+for i in range(t):
+    n = int(input())
+    nums = list(map(int,input().split()))
+    string = input()
+    existedNum = [] # stores previously existed integer number in nums
+    flag = True
+    if len(nums) == 1:
+        print("Yes")
+        continue
+    for ind in range(len(nums)):
+        if nums[ind] not in existedNum:
+            existedNum.append(nums[ind])
+        else:
+            continue
+        for j in range(ind+1,len(nums)):
+            if nums[ind] == nums[j] and string[ind] != string[j]:
+                flag = False
+                break
+    if flag == True:
+        print("Yes")
+    else:
+        print("No")
