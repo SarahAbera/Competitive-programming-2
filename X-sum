@@ -1,0 +1,19 @@
+from collections import defaultdict
+t = int(input())
+for _ in range(t):
+    n,m = map(int,input().split())
+    chess = []
+    for i in range(n):
+        chess.append(input().split())
+
+    diag1 = defaultdict(list)
+    diag2 = defaultdict(list)
+    for r in range(n):
+        for c in range(m):
+            diag1[r-c].append(int(chess[r][c]))
+            diag2[r+c].append(int(chess[r][c]))
+    maximum = 0
+    for r in range(n):
+        for c in range(m):
+            maximum = max(maximum,(sum(diag1[r-c]) + sum(diag2[r+c]))-int(chess[r][c]))
+    print(maximum)
