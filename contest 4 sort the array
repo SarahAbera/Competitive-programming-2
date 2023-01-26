@@ -1,0 +1,28 @@
+n = int(input())
+lst = list(map(int,input().split()))
+l = 0
+r = n - 1
+while l < n-1:
+    if lst[l] > lst[l+1]:
+        break
+    l += 1
+if l == n-1:
+    print("yes\n1 1")
+else:
+    while r >= 0:
+        if lst[r] < lst[r-1]:
+            break
+        r -= 1
+
+    idxL,idxR = l+1, r+1
+    while l < r:
+        lst[l], lst[r] = lst[r], lst[l]
+        l += 1
+        r -= 1
+    for i in range(n-1):
+        if lst[i] > lst[i+1]:
+            print("no")
+            break
+    else:
+        print("yes")
+        print(idxL,idxR)
