@@ -1,0 +1,37 @@
+class Solution:
+    def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
+        count = 0
+        for row in range(0,len(grid)-2):
+            for col in range(0,len(grid[0])-2):
+                sum = set()
+                check = set()
+                for i in range(row,row + 3):
+                    for j in range(col,col + 3):
+                        if grid[i][j] > 9 or grid[i][j] == 0:
+                            break
+                        check.add(grid[i][j])
+
+                if len(check) == 9:
+                    for i in range(row,row + 3):
+                        _sum = 0
+                        for j in range(col,col + 3):  
+                            _sum += grid[i][j]
+                        sum.add(_sum)
+
+                    for j in range(col,col + 3):
+                        _sum = 0
+                        for i in range(row,row + 3):
+                            _sum += grid[i][j]
+                        sum.add(_sum)
+                    
+                    # check diagonal
+                    _sum1 = grid[row][col] + grid[row+1][col+1] + grid[row+2][col+2]
+                    _sum2 = grid[row+2][col] + grid[row+1][col+1] + grid[row][col+2]
+
+                    sum.add(_sum1)
+                    sum.add(_sum2)
+            
+                if len(sum) == 1:
+                    count += 1
+        
+        return count
