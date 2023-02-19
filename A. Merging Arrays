@@ -1,0 +1,36 @@
+############ ---- Input Functions ---- ############
+def inp():
+    # Use this function to accept number only
+    return(int(input()))
+def inlt():
+    # Use this function to accept list
+    return(list(map(int,input().split())))
+def insr():
+    # Use this function to accept string
+    s = input()
+    return(list(s[:len(s) - 1]))
+def invr():
+    # Use this function to accept space separated variables
+    return(map(int,input().split()))
+    
+n , m = invr()
+arr1 = inlt()
+arr2 = inlt()
+p1 = 0
+p2 = 0
+output = []
+while p1 < n and p2 < m:
+    if arr1[p1] < arr2[p2]:
+        output.append(arr1[p1])
+        p1 += 1
+    elif arr1[p1] > arr2[p2]:
+        output.append(arr2[p2])
+        p2 += 1
+    else:
+        output.append(arr2[p2])
+        output.append(arr1[p1])
+        p1 += 1
+        p2 += 1
+output.extend(arr1[p1:])
+output.extend(arr2[p2:])
+print(*output)
