@@ -1,0 +1,12 @@
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    list1 = list(map(int,input().split()))
+    list1.sort()
+    for i in range(n - 1):
+        if list1[i+1] - list1[i] > 1:
+            print("NO")
+            break
+    else:
+        print("YES")
+            
