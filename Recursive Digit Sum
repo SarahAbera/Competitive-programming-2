@@ -1,0 +1,17 @@
+# Complete the 'superDigit' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. STRING n
+#  2. INTEGER k
+#
+
+def superDigit(n, k):
+    p = sum(list(map(int,n))) * k
+    def super(p):
+        if int(p) < 10:
+            return int(p)
+        nums = list(map(int,p))
+        p = sum(nums)
+        return super(str(p))
+    return super(str(p))
